@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px; 
+}
+
+:root {
+    --color-primary-1: #c59d5f;
+    --color-primary-2: hsl(209, 61%, 16%);
+    --spacing: 4px; 
+}
+
+body {
+    background: hsl(210, 36%, 96%);
+    font-family: 'Open Sans', sans-serif;
+}
+
+section {
+    padding-top: 80px;
+}
+
+/*title*/
+.title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title::after {
+    content: "";
+    background-color: var(--color-primary-1);
+    position: absolute;
+    bottom: -12px;
+    left: 47%;
+    width: 80px;
+    height: 4px;
+}
+
+.title h1 {
+    background: transparent;
+    color: var(--color-primary-2);
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: var(--spacing);
+    font-family: 'Roboto', sans-serif;
+}
+
+/*links*/
+.links {
+    margin-bottom: 50px;
+}
+
+.links ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .btn {
+    border: 2px solid black;
+} */
+
+.links button {
+    background-color: transparent;
+    color: var(--color-primary-1);
+    font-size: 16px;
+    padding: 6px 12px;
+    margin: 0px 8px;
+    letter-spacing: 1px;
+    border-color: var(--color-primary-1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .4s ease-in;
+}
+
+.links button:hover {
+    background-color: var(--color-primary-1);
+    color: white;
+}
+
+/*meals*/
+.meals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    width: 90vw;
+    margin: auto;
+    justify-content: center;
+}
+
+/*card*/
+.meals .card  {
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    gap: 22px;
+    /* width: 640px; */
+}
+
+.meals .card img {
+    width: 100%;
+}
+/*card*/
+
