@@ -83,33 +83,76 @@ const items = [
 ];
 
 
-const meals = document.querySelector(".meals")
+// display functions when page load 
+window.onload = function() {
+    displayButtons();
+    displayMeals(items);
+}
 
-const btns = document.querySelectorAll(".btn");
-btns.forEach((btn) => {
-    btn.onclick = function() {
-        btns.forEach((btn) => {
-            btn.classList.remove("active")
-        })
-        btn.classList.add("active")
-    }
-})
 
-let draw = ''
-items.forEach((item) => {
-    console.log(item)
-    draw += `
-        <div class="card">
-            <img src="${item.img}" alt="${item.title}">
-            <div class="info">
-                <div class="headings">
-                    <h4>${item.title}</h4>
-                    <span>${item.price}</span>
+//displayButtons function
+const list = document.querySelector(".links-list")
+function displayButtons() {
+    //loop in items to produce category
+    const allCategories = items.map(item => {
+        return `${item.category}` 
+    })
+    allCategories.unshift("all")
+    const categories = new Set(allCategories)
+    console.log(categories)
+    //display and create button
+    let btns = ''
+    categories.forEach(category => {
+        btns += `
+            <li><button class="btn" data-filter="${category}">${category}</button></li>
+        `
+    })
+    list.innerHTML = btns
+    //select all btns
+    const allBtns = document.querySelectorAll(".btn");
+    allBtns.forEach((btn) => {
+        btn.onclick = function(e) {
+            const filterCatergory = e.target.dataset.filter;
+            // console.log(filterCatergory)
+            const menuCategory = items.filter(item => {
+                console.log(item.category)
+                if(item.category === filterCatergory) {
+                    return item
+                }
+            })
+            if(filterCatergory === 'all') {
+                displayMeals(items)
+            } else {
+                displayMeals(menuCategory)
+            }
+            //add active class
+            allBtns.forEach((btn) => {
+                btn.classList.remove("active")
+            })
+            btn.classList.add("active")
+        }
+    })
+}
+
+//displayMeals function
+const mealsBox = document.querySelector(".meals")
+function displayMeals(meals) {
+    let draw = ''
+    meals.map((meal) => {
+        draw += `
+            <div class="card">
+                <img src="${meal.img}" alt="${meal.title}">
+                <div class="info">
+                    <div class="headings">
+                        <h4>${meal.title}</h4>
+                        <span>$${meal.price}</span>
+                    </div>
+                    <p>${meal.desc}</p>
                 </div>
-                <p>${item.desc}</p>
             </div>
-        </div>
-    `
-    meals.innerHTML = draw
-})
+        `
+    })
+    mealsBox.innerHTML = draw;
+}
+
 
