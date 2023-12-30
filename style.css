@@ -12,7 +12,6 @@
 
 body {
     background: hsl(210, 36%, 96%);
-    /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -87,9 +86,9 @@ button.active {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 45px 35px;
-    width: 87vw;
+    width: 90vw;
+    max-width: 1170px;
     margin: auto;
-    justify-content: center;
 }
 
 /*card*/
@@ -97,7 +96,7 @@ button.active {
     display: grid;
     grid-template-columns: 225px 1fr;
     gap: 22px;
-    max-width: 580px;
+    max-width: 600px;
 }
 
 .meals .card img {
@@ -127,4 +126,18 @@ button.active {
     margin-top: 16px;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .meals {
+        grid-template-columns: 1fr;
+    }
+
+    .meals .card {
+        grid-template-columns: 1fr;
+    }
+
+    .meals .card img {
+        height: 200px;
+    }
 }
