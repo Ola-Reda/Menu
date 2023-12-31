@@ -85,16 +85,18 @@ button.active {
 .meals {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 45px 35px;
-    width: 90vw;
+    gap: 45px 30px;
+    width: 95vw;
     max-width: 1170px;
     margin: auto;
+    justify-items: center;
 }
 
 /*card*/
 .meals .card {
     display: grid;
     grid-template-columns: 225px 1fr;
+    /* grid-template-columns: 1fr 1fr; */
     gap: 22px;
     max-width: 600px;
 }
@@ -128,9 +130,22 @@ button.active {
     line-height: 1.5;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
     .meals {
         grid-template-columns: 1fr;
+    }
+
+    .meals .card img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .meals {
+        width: 90vw;
+        grid-template-columns: 1fr;
+        max-width: 25rem;
+        /* gap: 1rem 2rem; */
     }
 
     .meals .card {
