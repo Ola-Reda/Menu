@@ -6,7 +6,7 @@
 
 :root {
     --color-primary-1: #c59d5f;
-    --color-primary-2: hsl(209, 61%, 16%);
+    --color-primary-2: hsl(210, 22%, 49%);
     --spacing: 4px; 
 }
 
@@ -112,7 +112,7 @@ button.active {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: .5px dotted hsl(210, 22%, 49%);
+    border-bottom: .5px dotted var(--color-primary-2);
     padding-bottom: 6px;
     letter-spacing: var(--spacing);
     text-transform: capitalize;
@@ -124,7 +124,7 @@ button.active {
 }
 
 .card .info p {
-    color: hsl(210, 22%, 49%);
+    color: var(--color-primary-2);
     margin-top: 16px;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
